@@ -9,13 +9,29 @@ use Symfony\Component\Routing\Annotation\Route;
 class BienvenueController extends AbstractController
 {
     #[Route('/bienvenue', name: 'app_bienvenue')]
-    public function index(): Response
+    public function bienvenue(): Response
     {
-    //  donnée simulée
-        $prenom = "Pierre";
-        return $this->render('bienvenue/index.html.twig',[
-            "prenom" => "pierre"
-        ]);
+        //  donnée simulée
+        return $this->render('bienvenue/index.html.twig');
 
     }
+
+    #[Route('/bienvenue/{prenom}', name: 'app_bienvenue_prenom')]
+    public function bienvenuePrenom(string $prenom): Response
+    {
+        //  donnée simulée
+        return $this->render('bienvenue/index.html.twig', [
+            "prenom" => $prenom
+        ]);
+    }
+    #[Route('/bienvenues', name: 'app_bienvenues')]
+    public function bienvenues(string $prenom): Response
+    {
+        //  donnée simulée
+        return $this->render('bienvenue/index.html.twig', [
+            "acteurs" => ["fadel", "amar"]
+        ]);
+    }
+
+
 }

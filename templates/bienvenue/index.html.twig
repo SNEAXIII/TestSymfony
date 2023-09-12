@@ -2,6 +2,10 @@
 
 {% block title %}Hello BienvenueController!{% endblock %}
 
-{% block body %}
-<p>Bienvenue {{ prenom | upper }} dans le cours symfony</p>
-{% endblock %}
+{%block body%}
+    {%if prenom is defined%}
+    <p>Bienvenue {{ prenom | upper }} dans le cours symfony</p>
+    {%else%}
+    <p>Bienvenue à tous dans le cours symfony</p>
+    {%endif%}
+{% endblock body %}

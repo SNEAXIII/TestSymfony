@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BienvenueController!{% endblock %}
+
+{%block body%}
+    {%for each in personnes%}
+        <li>{{ each }}</li>
+    {% endfor %}
+{% endblock body %}
