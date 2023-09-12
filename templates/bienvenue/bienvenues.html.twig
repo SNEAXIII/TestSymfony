@@ -3,7 +3,9 @@
 {% block title %}Hello BienvenueController!{% endblock %}
 
 {%block body%}
-    {%for each in personnes%}
+    <ul>
+    {%for each in acteurs%}
         <li>{{ each }}</li>
     {% endfor %}
+    </ul>
 {% endblock body %}
