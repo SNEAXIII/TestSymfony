@@ -5,7 +5,7 @@
 {%block body%}
     <ul>
     {%for each in acteurs%}
-        <li>{{ each }}</li>
+        <li><a href="{{ path('app_bienvenue_prenom',{"prenom" : each}) }}">{{ each|capitalize }}</a></li>
     {% endfor %}
     </ul>
 {% endblock body %}
