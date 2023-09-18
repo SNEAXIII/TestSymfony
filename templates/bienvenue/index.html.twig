@@ -4,8 +4,8 @@
 
 {%block body%}
     {%if prenom is defined%}
-    <p>Bienvenue {{ prenom | upper }} dans le cours symfony</p>
+    <h1>Bienvenue {{ prenom | upper }} dans le cours symfony</h1>
     {%else%}
-    <p>Bienvenue à tous dans le cours symfony</p>
+    <h1>Bienvenue à tous dans le cours symfony</h1>
     {%endif%}
 {% endblock body %}

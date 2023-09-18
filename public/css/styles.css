@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
 a {
     text-decoration: none;
     color: inherit;
@@ -17,7 +25,9 @@ h1 {
     list-style: none;
     display: flex;
     flex-direction: row;
+    /*justify-content: flex-end;*/
     padding: 0;
+    margin: 10px;
 }
 
 .listeHeader li {
@@ -28,6 +38,7 @@ h1 {
     list-style: none;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     padding: 0;
 }
 

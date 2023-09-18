@@ -3,7 +3,7 @@
 {% block title %}Hello BienvenueController!{% endblock %}
 
 {%block body%}
-    <p>Bienvenue à tous nos étudiants</p>
+    <h1>Bienvenue à tous nos étudiants</h1>
     <ul class="eleves">
     {%for each in acteurs%}
         <li><a href="{{ path('app_bienvenue_prenom',{"prenom" : each}) }}">{{ each|capitalize }}</a></li>
