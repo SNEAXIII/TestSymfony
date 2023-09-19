@@ -35,7 +35,6 @@ class EtudiantController extends AbstractController
             'etudiant' => $etudiant,
         ]);
     }
-
     #[Route('/etudiants/mineurs', name: 'app_etudiant_mineurs_liste')]
     // Injection de dépendence
     public function listeMineur(EtudiantRepository $etudiantRepository): Response
