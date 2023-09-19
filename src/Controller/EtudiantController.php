@@ -23,7 +23,7 @@ class EtudiantController extends AbstractController
         ]);
     }
 
-    #[Route('/etudiants/{id}', name: 'app_etudiant_fiche',requirements: ['id'=>'\d+'])]
+    #[Route('/etudiants/{id}', name: 'app_etudiant_fiche', requirements: ['id' => '\d+'])]
     // Injection de dépendence
     public function fiche(EtudiantRepository $etudiantRepository, $id): Response
     {
