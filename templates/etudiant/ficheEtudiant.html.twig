@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EtudiantController!{% endblock %}
+
+{% block body %}
+    <h1>Information sur l'étudiants</h1>
+    {% set prenom = etudiant.prenom %}
+    {% set nom = etudiant.nom %}
+    {% set date = etudiant.dateNaissance %}
+    {% set email = etudiant.email %}
+    {% set age = etudiant.age %}
+    <ul>
+        <li>Nom : {{ nom }}</li>
+        <li>Prenom : {{ prenom }}</li>
+        <li>Email : {{ email }}</li>
+        <li>Date de naissance : {{ date|date("d/m/Y") }}</li>
+        <li>Age : {{ age }}</li>
+    </ul>
+{% endblock %}

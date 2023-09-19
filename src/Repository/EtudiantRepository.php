@@ -21,6 +21,34 @@ class EtudiantRepository extends ServiceEntityRepository
         parent::__construct($registry, Etudiant::class);
     }
 
+    /**
+     * @return Etudiant[] Returns an array of Etudiant objects
+     */
+    public function findMineurs(): array
+    {
+        $dateMajorite = new \DateTime("-18 years");
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.dateNaissance > :dateMajorite')
+            ->setParameter('dateMajorite', $dateMajorite)
+            ->getQuery()
+            ->getResult();
+    }
+    /**
+     * @return Etudiant[] Returns an array of Etudiant objects
+     */
+    public function findMineurs2(): array
+    {
+        $dateMajorite = new \DateTime("-18 years");
+
+        // Exprimer la requete
+        $requestDQL = "SELECT etudiant FROM App\Entity\Etudiant AS etudiant WHERE etudiant.dateNaissance > :dateMajorite";
+
+        // Construire la requete
+        $request = $this->getEntityManager()->createQuery($requestDQL);
+        $request->setParameter("dateMajorite",$dateMajorite);
+        return $request->getResult();
+    }
+
 //    /**
 //     * @return Etudiant[] Returns an array of Etudiant objects
 //     */
