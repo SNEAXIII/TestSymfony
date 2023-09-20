@@ -9,11 +9,13 @@
     {% set date = etudiant.dateNaissance %}
     {% set email = etudiant.email %}
     {% set age = etudiant.age %}
+    {% set promotion = etudiant.promotion.nom %}
     <ul>
         <li>Nom : {{ nom }}</li>
         <li>Prenom : {{ prenom }}</li>
         <li>Email : {{ email }}</li>
         <li>Date de naissance : {{ date|date("d/m/Y") }}</li>
         <li>Age : {{ age }}</li>
+        <li>Promotion : {{ promotion }}</li>
     </ul>
 {% endblock %}
