@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PromotionController!{% endblock %}
+
+{% block body %}
+    {% set nom = promotion.nom %}
+    {% set annee = promotion.annee %}
+    {% set id = promotion.id %}
+    <ul>
+        <li>{{ nom }}</li>
+        <li>{{ annee }}</li>
+    </ul>
+
+{% endblock %}
+
