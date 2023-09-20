@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PromotionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PromotionRepository::class)]
@@ -18,6 +20,14 @@ class Promotion
 
     #[ORM\Column(length: 4)]
     private ?string $annee = null;
+
+    #[ORM\OneToMany(mappedBy: 'Promotion', targetEntity: Etudiant::class)]
+    private Collection $yes;
+
+    public function __construct()
+    {
+        $this->yes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -44,6 +54,36 @@ class Promotion
     public function setAnnee(string $annee): static
     {
         $this->annee = $annee;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Etudiant>
+     */
+    public function getYes(): Collection
+    {
+        return $this->yes;
+    }
+
+    public function addYe(Etudiant $ye): static
+    {
+        if (!$this->yes->contains($ye)) {
+            $this->yes->add($ye);
+            $ye->setPromotion($this);
+        }
+
+        return $this;
+    }
+
+    public function removeYe(Etudiant $ye): static
+    {
+        if ($this->yes->removeElement($ye)) {
+            // set the owning side to null (unless already changed)
+            if ($ye->getPromotion() === $this) {
+                $ye->setPromotion(null);
+            }
+        }
 
         return $this;
     }
