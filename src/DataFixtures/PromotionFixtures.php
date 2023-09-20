@@ -11,11 +11,12 @@ class PromotionFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $faker = Factory::create('FR_fr');
+        $faker = Factory::create('fr_FR');
         for ($i=0;$i<10;$i++) {
             $promotion = new Promotion();
             $promotion->setNom($faker->unique()->word());
             $promotion->setAnnee("2023");
+            $this->setReference("promotion_$i",$promotion);
             $manager->persist($promotion);
         }
         $manager->flush();
