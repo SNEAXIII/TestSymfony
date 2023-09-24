@@ -48,7 +48,17 @@ class EtudiantRepository extends ServiceEntityRepository
         $request->setParameter("dateMajorite",$dateMajorite);
         return $request->getResult();
     }
-
+    /**
+     * @return Etudiant[] Returns an array of Etudiant objects
+     */
+    public function findByPromotion(int $id): array
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.Promotion = :idPromotion')
+            ->setParameter('idPromotion', $id)
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return Etudiant[] Returns an array of Etudiant objects
 //     */
