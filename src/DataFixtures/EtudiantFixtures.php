@@ -16,7 +16,7 @@ class EtudiantFixtures extends Fixture implements DependentFixtureInterface
         // creer objet faker
         $faker = Factory::create("fr_FR");
         // creer 100 etudiants
-        for ($i = 1; $i <= 5000; $i++) {
+        for ($i = 1; $i <= 40; $i++) {
             $etudiant = new Etudiant();
             $etudiant->setPrenom($faker->firstName());
             $etudiant->setNom($faker->lastName());
