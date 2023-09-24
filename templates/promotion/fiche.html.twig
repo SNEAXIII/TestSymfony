@@ -7,9 +7,18 @@
     {% set annee = promotion.annee %}
     {% set id = promotion.id %}
     <ul>
-        <li>{{ nom }}</li>
-        <li>{{ annee }}</li>
+        <li>Nom : {{ nom }}</li>
+        <li>Année : {{ annee }}</li>
     </ul>
-
+    <h1>Voici la liste des étudiants de la promotion</h1>
+    <p>Actuellement il y a  {{ nombreEleves }} élèves:</p>
+    <ul>
+        {% for each in liste %}
+            {% set prenom = each.prenom %}
+            {% set nom = each.nom %}
+            {% set id = each.id %}
+            <li><a href="{{ path('app_etudiant_fiche',{"id":id}) }}">{{ prenom }} {{ nom }}</a></li>
+        {% endfor %}
+    </ul>
 {% endblock %}
 
