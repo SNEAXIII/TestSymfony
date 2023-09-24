@@ -5,11 +5,11 @@
 {% block body %}
     <h1>Liste de tous les étudiants</h1>
     <ul>
-    {%for each in etudiants%}
-        {% set prenom = each.prenom %}
-        {% set nom = each.nom %}
-        {% set id = each.id %}
-        <li><a href="{{ path('app_etudiant_fiche',{"id":id}) }}">{{ prenom }} {{ nom }}</a></li>
-    {%endfor %}
+        {% for each in etudiants %}
+            {% set prenom = each.prenom %}
+            {% set nom = each.nom %}
+            {% set id = each.id %}
+            <li><a href="{{ path('app_etudiant_fiche',{"id":id}) }}">{{ prenom }} {{ nom }}</a></li>
+        {% endfor %}
     </ul>
 {% endblock %}
